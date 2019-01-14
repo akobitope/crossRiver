@@ -60,13 +60,27 @@
             from = $("#to").val();
             message = $("#message").val();
 
-
-            $.post("http://localhost:9000/api/notification/", {
+            var notification = {
                 sentTo: to,
                 sentFrom: from,
-                message: message
-            }, function (data) {
-                alert(data);
+                message: message,
+                isSent: false,
+                dateRead: null,
+                dateSent: "2019-09-05"
+            };
+
+            $.ajax({
+                url: 'http://localhost:9000/api/notification/',
+                dataType: 'json',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify(notification),
+                success: function (data, textStatus, jQxhr) {
+                    console.log(data);
+                },
+                error: function (jqXhr, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                }
             });
 
             console.log(message)
