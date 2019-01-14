@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <title>HQ Tech</title>
+</head>
+
+<body>
+    <div class="container">
+        <br />
+        <h1>Notification App <span class="badge badge-secondary">HQ Tech</span></h1>
+        <hr />
+        <form action="/" id="notificationForm">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="from">From</label>
+                    <select class="form-control" id="from">
+                        <option value="mark">Mark</option>
+                        <option value="peter">Peter</option>
+                        <option value="john">John</option>
+                        <option value="simon">Simon</option>
+                        <option value="jude">Jude</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="to">To</label>
+                    <select class="form-control" id="to">
+                        <option value="simon">Simon</option>
+                        <option value="jude">Jude</option>
+                        <option value="peter">Peter</option>
+                        <option value="john">John</option>
+                        <option value="mark">Mark</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <input type="text" class="form-control" id="message" placeholder="enter message...">
+            </div>
+
+
+            <button type="submit" id="post-btn" class="btn btn-primary">Send Notification</button>
+        </form>
+    </div>
+
+
+    <script>
+        $("#notificationForm").submit(function (event) {
+
+            event.preventDefault();
+            to = $("#from").val();
+            from = $("#to").val();
+            message = $("#message").val();
+
+
+            $.post("http://localhost:9000/api/notification/", {
+                sentTo: to,
+                sentFrom: from,
+                message: message
+            }, function (data) {
+                alert(data);
+            });
+
+            console.log(message)
+
+        });
+    </script>
+</body>
+
+</html>
