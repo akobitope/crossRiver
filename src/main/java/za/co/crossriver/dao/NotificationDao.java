@@ -19,7 +19,7 @@ public class NotificationDao {
 	static final String DB_URL = "jdbc:mysql://localhost/crossrivers";
 
 	static final String USER = "root";
-	static final String PASS = "1986";
+	static final String PASS = "yourpassword";
 
 	Connection con = null;
 
