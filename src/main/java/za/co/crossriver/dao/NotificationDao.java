@@ -16,7 +16,7 @@ import za.co.crossriver.model.Notification;
 public class NotificationDao {
 
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost/crossriver";
+	static final String DB_URL = "jdbc:mysql://localhost/crossrivers";
 
 	static final String USER = "root";
 	static final String PASS = "1986";
