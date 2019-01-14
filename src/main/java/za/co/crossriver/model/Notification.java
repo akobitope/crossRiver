@@ -28,7 +28,6 @@ public class Notification implements Serializable {
 	@NotEmpty
 	private String message;
 	@NotNull
-	@NotEmpty
 	private Boolean isRead;
 
 	public Notification() {
