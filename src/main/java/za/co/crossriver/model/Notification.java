@@ -3,6 +3,9 @@ package za.co.crossriver.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 /**
  *
  * @author Temi
@@ -11,11 +14,21 @@ public class Notification implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Integer id;
+	@NotNull
+	@NotEmpty
 	private Date dateSent;
 	private Date dateRead;
+	@NotNull
+	@NotEmpty
 	private String sentFrom;
+	@NotNull
+	@NotEmpty
 	private String sentTo;
+	@NotNull
+	@NotEmpty
 	private String message;
+	@NotNull
+	@NotEmpty
 	private Boolean isRead;
 
 	public Notification() {
