@@ -22,23 +22,27 @@ public class NotificationResource {
 	@Autowired
 	private NotificationDao notificationDao;
 
+	@CrossOrigin
 	@PostMapping("/notification")
 	public Boolean createNotification(@Valid @RequestBody Notification notification) {
 		return notificationDao.createNotification(notification);
 	}
 
+	@CrossOrigin
 	@GetMapping("/notification/{username}")
 	public List<Notification> getNotificationByUser(@PathVariable(value = "username") String username) {
 		return notificationDao.retreiveUserNotifications(username);
 
 	}
 
+	@CrossOrigin
 	@GetMapping("/notification/{username}/{status}")
 	public List<Notification> getNotificationByUserAndRead(@PathVariable(value = "username") String sentTo,
 			@PathVariable(value = "status") Boolean isRead) {
 		return notificationDao.readMessages(isRead, sentTo);
 	}
 
+	@CrossOrigin
 	@GetMapping("/notification/status/{isRead}/id/{id}")
 	public Boolean toggleNotification(@PathVariable(value = "id") Integer id,
 			@PathVariable(value = "isRead") Boolean isRead) {
